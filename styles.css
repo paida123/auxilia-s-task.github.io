@@ -1,0 +1,245 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #4a90e2;
+  --secondary-color: #2c3e50;
+  --bg-gradient: linear-gradient(135deg, #c9d6ff, #e2e2e2);
+  --card-bg: #ffffff;
+  --text-color: #333;
+  --radius: 1.5rem;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+
+.profile-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  max-width: 900px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  transition: var(--transition);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.profile-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.profile-card figure {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-card img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-color);
+  transition: var(--transition);
+  box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.5);
+  animation: pulseBorder 3s infinite;
+}
+
+@keyframes pulseBorder {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(74, 144, 226, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0);
+  }
+}
+
+.profile-card img:hover {
+  transform: scale(1.05);
+}
+
+
+header h2 {
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+p[data-testid="test-user-bio"] {
+  text-align: center;
+  line-height: 1.6;
+  color: #555;
+  font-size: 1rem;
+}
+
+.time {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+
+.social-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin: 1rem 0;
+}
+
+.social-links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 999px;
+  padding: 0.5rem 1.2rem;
+  transition: var(--transition);
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  background: var(--primary-color);
+  color: #fff;
+  outline: none;
+  transform: translateY(-3px);
+}
+
+
+.lists-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+section {
+  background: #f9f9f9;
+  border-radius: 1rem;
+margin: auto;
+  
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+section:hover {
+  transform: scale(1.02);
+  background: #f1f6ff;
+}
+
+section h3 {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+section h3::before {
+  content: "⭐";
+  font-size: 1rem;
+}
+
+section ul {
+  list-style-type: circle;
+  padding-left: 1.5rem;
+}
+
+section ul li {
+  margin-bottom: 0.3rem;
+  color: #555;
+}
+#hobbies-title{
+    width: 10px;
+}
+
+
+
+
+@media (min-width: 600px) {
+  .profile-card {
+    grid-template-columns: 1fr 2fr;
+    text-align: left;
+    gap: 2.5rem;
+  }
+
+  header h2,
+  p[data-testid="test-user-bio"],
+  .time {
+    text-align: left;
+  }
+
+  .social-links {
+    justify-content: flex-start;
+  }
+
+  .lists-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  section {
+    width: 48%;
+  }
+}
+
+
+@media (min-width: 900px) {
+  .profile-card {
+    padding: 3rem 4rem;
+    grid-template-columns: 1fr 2fr;
+    align-items: flex-start;
+  }
+
+  header h2 {
+    font-size: 2rem;
+  }
+
+  p[data-testid="test-user-bio"] {
+    font-size: 1.1rem;
+  }
+
+  .lists-container {
+    gap: 2rem;
+  }
+}

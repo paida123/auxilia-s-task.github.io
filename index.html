@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Card</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <article class="profile-card" data-testid="test-profile-card">
+      <header>
+        <h2 data-testid="test-user-name">Auxilia Chiromo</h2>
+      </header>
+         <nav aria-label="Social media links">
+        <ul data-testid="test-user-social-links" class="social-links">
+          <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-twitter">Twitter</a></li>
+          <li><a href="https://github.com/dashboard" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-github">GitHub</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-linkedin">LinkedIn</a></li>
+        </ul>
+      </nav>
+      
+
+      <figure>
+        <img 
+          src="img/IMG_3181.JPG" 
+          alt="Profile picture of AC" 
+          data-testid="test-user-avatar"
+        />
+      </figure>
+
+      <p data-testid="test-user-bio">
+        Passionate front-end developer with a love for clean, accessible UI design and great user experiences.
+      </p>
+
+
+   
+
+      <section aria-labelledby="hobbies-title">
+        <h3 id="hobbies-title">Hobbies</h3>
+        <ul data-testid="test-user-hobbies">
+          <li>Coding</li>
+          <li>Reading</li>
+          <li>Photography</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="dislikes-title">
+        <h3 id="dislikes-title">Dislikes</h3>
+        <ul data-testid="test-user-dislikes">
+          <li>Procrastination</li>
+          <li>Slow Wi-Fi</li>
+          <li>Messy code</li>
+        </ul>
+      </section>
+      
+      <p class="time"><b>   
+        Current Time: </b>
+        <span data-testid="test-user-time" id="current-time"></span>
+      </p>
+    </article>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
