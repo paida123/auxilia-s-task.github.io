@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Me - Auxilia Chiromo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="contact-page">
+    <header>
+      <h1>Contact Me</h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="contactMe.html" class="active">Contact Me</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Get in Touch</h2>
+      <form id="contact-form" data-testid="test-contact-form" novalidate>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required data-testid="test-contact-name" />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required data-testid="test-contact-email" />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required data-testid="test-contact-message"></textarea>
+
+        <button type="submit" data-testid="test-contact-submit">Send Message</button>
+        <div id="form-success" class="form-success" aria-live="polite" hidden></div>
+      </form>
+    </section>
+  </main>
+  <script src="contactFormValidation.js"></script>
+</body>
+</html>

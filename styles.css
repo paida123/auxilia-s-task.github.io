@@ -1,4 +1,4 @@
-
+/* 🌈 RESET + VARIABLES */
 * {
   margin: 0;
   padding: 0;
@@ -27,9 +27,60 @@ body {
   align-items: center;
   padding: 2rem;
   overflow-x: hidden;
+  animation: fadeInPage 0.8s ease-out;
 }
 
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+/* 🌟 NAVIGATION */
+.main-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  position: relative;
+  transition: var(--transition);
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--secondary-color);
+}
+
+/* 💼 PROFILE CARD */
 .profile-card {
   background: var(--card-bg);
   border-radius: var(--radius);
@@ -61,7 +112,6 @@ body {
   }
 }
 
-
 .profile-card figure {
   display: flex;
   justify-content: center;
@@ -74,7 +124,6 @@ body {
   object-fit: cover;
   border: 4px solid var(--primary-color);
   transition: var(--transition);
-  box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.5);
   animation: pulseBorder 3s infinite;
 }
 
@@ -94,7 +143,7 @@ body {
   transform: scale(1.05);
 }
 
-
+/* 👤 TEXT & CONTENT */
 header h2 {
   font-size: 1.8rem;
   color: var(--secondary-color);
@@ -116,7 +165,7 @@ p[data-testid="test-user-bio"] {
   margin-top: 0.5rem;
 }
 
-
+/* 🔗 SOCIAL LINKS */
 .social-links {
   list-style: none;
   display: flex;
@@ -145,19 +194,13 @@ p[data-testid="test-user-bio"] {
   transform: translateY(-3px);
 }
 
-
-.lists-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
+/* 🧩 SECTIONS (HOBBIES, DISLIKES) */
 section {
   background: #f9f9f9;
   border-radius: 1rem;
-margin: auto;
-  
+  margin: auto;
   box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.5rem;
   transition: var(--transition);
 }
 
@@ -189,13 +232,99 @@ section ul li {
   margin-bottom: 0.3rem;
   color: #555;
 }
-#hobbies-title{
-    width: 10px;
+
+/* 🧠 ABOUT PAGE */
+.about-page {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  max-width: 800px;
+  animation: fadeInPage 0.8s ease-out;
 }
 
+.about-page section {
+  margin-bottom: 2rem;
+}
 
+.about-page h1 {
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}
 
+.about-page h2 {
+  color: var(--primary-color);
+  margin-bottom: 0.6rem;
+}
 
+.about-page p,
+.about-page li {
+  line-height: 1.7;
+  color: #444;
+}
+
+/* 💌 CONTACT PAGE */
+.contact-page {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  max-width: 600px;
+  width: 100%;
+  animation: fadeInPage 0.8s ease-out;
+}
+
+.contact-page h1 {
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.contact-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-page label {
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.contact-page input,
+.contact-page textarea {
+  padding: 0.8rem 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid #ccc;
+  font-family: var(--font-body);
+  transition: var(--transition);
+}
+
+.contact-page input:focus,
+.contact-page textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+  outline: none;
+}
+
+.contact-page button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0.6rem;
+  padding: 0.8rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.contact-page button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* 📱 RESPONSIVE DESIGN */
 @media (min-width: 600px) {
   .profile-card {
     grid-template-columns: 1fr 2fr;
@@ -213,22 +342,14 @@ section ul li {
     justify-content: flex-start;
   }
 
-  .lists-container {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
   section {
-    width: 48%;
-  }
+    width: 90%;
+  } 
 }
-
 
 @media (min-width: 900px) {
   .profile-card {
     padding: 3rem 4rem;
-    grid-template-columns: 1fr 2fr;
-    align-items: flex-start;
   }
 
   header h2 {
@@ -238,8 +359,50 @@ section ul li {
   p[data-testid="test-user-bio"] {
     font-size: 1.1rem;
   }
+}
 
-  .lists-container {
-    gap: 2rem;
+/* Validation / feedback styles */
+.input-error {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.08);
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: -0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-success {
+  margin-top: 0.75rem;
+  color: #1e8449;
+  background: rgba(30, 132, 73, 0.06);
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(30, 132, 73, 0.12);
+}
+
+/* Layout for small card groups (hobbies/dislikes) */
+.cards-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cards-row section {
+  flex: 1 1 0;
+}
+
+@media (min-width: 600px) {
+  .cards-row {
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .cards-row section {
+    /* keep visual consistency with other sections */
+    margin: 0;
   }
 }
